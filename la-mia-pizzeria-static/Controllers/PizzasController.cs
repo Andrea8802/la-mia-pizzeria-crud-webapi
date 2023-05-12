@@ -10,7 +10,7 @@ namespace la_mia_pizzeria_static.Controllers
     {
 
         // Search for Name
-        [HttpPut("{word}")]
+        [HttpGet("{id}")]
         public IActionResult StringSearch(string word)
         {
             using (PizzaContext db = new PizzaContext())
@@ -26,7 +26,7 @@ namespace la_mia_pizzeria_static.Controllers
 
 
         // Search for ID
-        [HttpPut("{id}")]
+        [HttpGet("{id}")]
         public IActionResult IdSearch(long id)
         {
             using (PizzaContext db = new PizzaContext())
@@ -109,7 +109,7 @@ namespace la_mia_pizzeria_static.Controllers
         }
 
         // Delete
-        [HttpPut("{id}")]
+        [HttpDelete("{id}")]
         public IActionResult Delete(long id)
         {
             using (PizzaContext db = new PizzaContext())
