@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using la_mia_pizzeria_static;
+using System.Text.Json.Serialization;
+
 namespace la_mia_pizzeria_static
 {
     public class Program
@@ -19,6 +21,9 @@ namespace la_mia_pizzeria_static
 
             builder.Services.AddScoped<ICustomLogger, CustomConsoleLogger>();
             //builder.Services.AddScoped<ICustomLogger, CustomFileLogger>();
+
+            builder.Services.AddControllers().AddJsonOptions(x =>
+                x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 
             var app = builder.Build();
 
